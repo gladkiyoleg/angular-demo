@@ -1,23 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-page.component';
 import { ChartComponent } from './pages/chart/chart.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/movie',
+    redirectTo: '/movies',
     pathMatch: 'full',
   },
   {
-    path: 'movie',
-    component: HomeComponent,
-  },
-  {
-    path: 'movie/:id',
-    component: HomeComponent,
+    path: 'movies',
+    loadChildren: () => import('./pages/movies/movies.module').then((m) => m.MoviesModule),
   },
   {
     path: 'chart',
@@ -25,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    component: NotFoundPageComponent,
   },
 ];
 

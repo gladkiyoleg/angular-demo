@@ -1,4 +1,0 @@
-<div class="container">
-  <mat-paginator [length]="totalPages" [pageSize]="pageSize" (page)="getMoviesList($event)"></mat-paginator>
-  <app-home-list-item *ngFor="let film of list" [film]="film" [genres]="genres"></app-home-list-item>
-</div>
