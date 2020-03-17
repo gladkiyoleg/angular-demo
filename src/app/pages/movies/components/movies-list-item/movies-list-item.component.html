@@ -1,0 +1,23 @@
+<mat-card class="movie-card">
+  <mat-card-content>
+    <img [src]="getMoviePoster(film.poster_path)" alt="">
+    <div class="movie-description">
+      <mat-card-title>
+        <span>{{film.title}} ({{film.release_date | date:'yyyy' }})</span>
+        <span class="mat-card-title--rating">
+          <i class="material-icons star">star</i>
+          {{film.vote_average}}
+        </span>
+      </mat-card-title>
+      <p>{{film.overview}}</p>
+      <mat-chip-list *ngIf="genres.length">
+        <mat-chip *ngFor="let genre of film.genre_ids">
+          {{setGenreName(genre)}}
+        </mat-chip>
+      </mat-chip-list>
+      <div class="button-wrapper">
+        <button [routerLink]="'/movies/' + film.id" mat-button mat-raised-button>More info</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

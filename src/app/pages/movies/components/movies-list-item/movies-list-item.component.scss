@@ -1,0 +1,36 @@
+.movie-card {
+  margin: 16px 0;
+}
+
+.mat-card-title {
+  display: flex;
+  justify-content: space-between;
+
+  &--rating {
+    display: flex;
+    align-items: center;
+
+    .material-icons {
+      margin-right: 3px;
+      color: #f5c518;
+    }
+  }
+}
+
+.movie-description {
+  width: 100%;
+}
+
+.mat-card-content {
+  display: flex;
+  align-items: flex-start;
+
+  img {
+    margin-right: 16px;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
