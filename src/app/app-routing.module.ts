@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-page.component';
-import { ChartComponent } from './pages/chart/chart.component';
 
 const routes: Routes = [
   {
@@ -16,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'chart',
-    component: ChartComponent,
+    loadChildren: () => import('./pages/chart/chart.module').then((m) => m.ChartModule),
   },
   {
     path: '**',

@@ -10,7 +10,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MoviesListPageComponent } from './pages/movies-list-page/movies-list-page.component';
 import { CoreModule } from '../../core/core.module';
 
-
 @NgModule({
   declarations: [
     MoviesListComponent,

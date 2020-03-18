@@ -7,12 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './core/pages/bootstrap/app.component';
-import { ChartComponent } from './pages/chart/chart.component';
 
 @NgModule({
-  declarations: [
-    ChartComponent,
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule,

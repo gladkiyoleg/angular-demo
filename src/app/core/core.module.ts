@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './pages/bootstrap/app.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
@@ -28,12 +29,14 @@ const COMPONENTS = [
     MatCardModule,
     MatChipsModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     ...COMPONENTS,
     MatCardModule,
     MatChipsModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class CoreModule {
