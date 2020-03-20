@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ChartApiResourcesEnum } from '../constants/api-resources.enum';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChartService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  getDataList(): Observable<any> {
-    return of([
-      { date: new Date('2020-03-15'), value: '26.1900' },
-      { date: new Date('2020-03-14'), value: '26.1900' },
-      { date: new Date('2020-03-13'), value: '26.0100' },
-      { date: new Date('2020-03-12'), value: '25.7000' },
-      { date: new Date('2020-03-11'), value: '25.3900' },
-      { date: new Date('2020-03-10'), value: '24.9600' },
-      { date: new Date('2020-03-09'), value: '24.9725' },
-    ]);
+  getDataList() {
+    const params = {
+      function: 'FX_DAILY',
+      from_symbol: 'USD',
+      to_symbol: 'UAH',
+      apikey: environment.AV_API_KEY,
+    };
+    return this.http.get(`${ChartApiResourcesEnum.BASE_API_URL}`, { params });
+
   }
 }

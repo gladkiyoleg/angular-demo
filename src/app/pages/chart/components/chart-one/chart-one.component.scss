@@ -1,22 +1,50 @@
-.chart-one {
-  svg {
-    max-width: 100%;
+.chart {
+  display: flex;
+
+  &--main {
+    overflow: auto;
   }
+
+  &--scale {
+    flex: 0 0 50px;
+  }
+
 }
 
 .axis {
   font: 10px sans-serif;
-}
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+  path,
+  line {
+
+    stroke: #000;
+    stroke-opacity: 0.1;
+    shape-rendering: crispEdges;
+  }
+
+  &--x {
+    path {
+      stroke: none;
+    }
+  }
+
+  &--y {
+    path {
+      stroke: none;
+    }
+  }
 }
 
 .line {
   fill: none;
-  stroke: steelblue;
+  stroke: slategrey;
   stroke-width: 2px;
+
+  &--x {
+    transform: rotate(180deg);
+  }
+
+  &--y {
+    transform: rotate(180deg) translateX(-10px);
+  }
 }

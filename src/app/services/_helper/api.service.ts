@@ -16,8 +16,8 @@ export class ApiService {
   get(url: string, options: any = this.defaultParams) {
     return this.http.get(url, {
       params: {
-        ...options,
         ...this.defaultParams,
+        ...options,
       },
     });
   }

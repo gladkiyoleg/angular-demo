@@ -1,5 +1,11 @@
-<app-main-layout [loading]="false">
-  <div class="chart-one">
-    <svg width="700" height="350"></svg>
+<app-main-layout [loading]="loading">
+  <h1>Currency Charts: USD to UAH</h1>
+  <div class="chart">
+    <div class="chart--main" #chartOne>
+      <svg id="main"></svg>
+    </div>
+    <div class="chart--scale">
+      <svg id="scale"></svg>
+    </div>
   </div>
 </app-main-layout>

@@ -6,3 +6,7 @@ export enum ApiResourcesEnum {
   MOVIE_POPULAR = 'https://api.themoviedb.org/3/movie/popular',
   GENRE_ALL = 'https://api.themoviedb.org/3/genre/movie/list',
 }
+
+export enum ChartApiResourcesEnum {
+  BASE_API_URL = 'https://www.alphavantage.co/query?',
+}
