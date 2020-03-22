@@ -109,7 +109,7 @@ export class ChartOneComponent implements OnInit {
         .tickPadding(5)
         .tickSizeOuter(0)
         .tickSizeInner(0))
-      .call(g => g.selectAll('.tick line').clone()
+      .call((g) => g.selectAll('.tick line').clone()
         .attr('class', 'line--x')
         .attr('y1', this.height));
   }
@@ -125,7 +125,7 @@ export class ChartOneComponent implements OnInit {
         .tickFormat(() => '')
         .tickSizeInner(0)
         .tickSizeOuter(0))
-      .call(g => g.selectAll('.tick line').clone()
+      .call((g) => g.selectAll('.tick line').clone()
         .attr('class', 'line--y')
         .attr('x1', this.width + 10));
   }

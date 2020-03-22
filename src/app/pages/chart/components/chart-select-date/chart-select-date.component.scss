@@ -1,0 +1,15 @@
+:host(app-chart-select-date) {
+  display: block;
+}
+
+::ng-deep svg {
+  .path {
+    fill: rgba(0, 0, 0, .2);
+  }
+
+  .selection {
+    stroke: #000;
+  }
+}
+
+

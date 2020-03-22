@@ -1,0 +1,15 @@
+<app-main-layout [loading]="loading">
+  <h1>Currency converter chart</h1>
+  <div class="mat-subheading-1">
+    {{selectedDateFrom | date:'dd MMM yyyy'}} - {{selectedDateTo | date:'dd MMM yyyy'}}
+  </div>
+  <div class="mat-subheading-1">
+    <span class="mat-body-strong">{{currencyCodeFrom}}/{{currencyCodeTo}}</span>
+    low: <span class="mat-body-strong">{{maxValue('low')}}</span>
+    high: <span class="mat-body-strong">{{maxValue('high')}}</span>
+  </div>
+  <div class="container">
+    <app-chart-currency-converter [data]="selectedDataRange"></app-chart-currency-converter>
+    <app-chart-select-date [data]="data" (onSelectData)="selectedDataHandler($event)"></app-chart-select-date>
+  </div>
+</app-main-layout>

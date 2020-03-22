@@ -11,14 +11,18 @@ export class ChartService {
   constructor(private http: HttpClient) {
   }
 
-  getDataList() {
-    const params = {
+  getDataList(params?) {
+    const defaultParams = {
       function: 'FX_DAILY',
       from_symbol: 'USD',
       to_symbol: 'UAH',
       apikey: environment.AV_API_KEY,
     };
-    return this.http.get(`${ChartApiResourcesEnum.BASE_API_URL}`, { params });
-
+    return this.http.get(`${ChartApiResourcesEnum.BASE_API_URL}`, {
+      params: {
+        ...defaultParams,
+        ...params,
+      },
+    });
   }
 }
