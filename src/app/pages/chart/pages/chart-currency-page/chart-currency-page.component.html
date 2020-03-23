@@ -9,7 +9,7 @@
     high: <span class="mat-body-strong">{{maxValue('high')}}</span>
   </div>
   <div class="container">
-    <app-chart-currency-converter [data]="selectedDataRange"></app-chart-currency-converter>
+    <app-chart-zoomable [data]="selectedDataRange"></app-chart-zoomable>
     <app-chart-select-date [data]="data" (onSelectData)="selectedDataHandler($event)"></app-chart-select-date>
   </div>
 </app-main-layout>

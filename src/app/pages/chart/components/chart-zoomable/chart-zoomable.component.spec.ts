@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartCurrencyConverterComponent } from './chart-currency-converter.component';
+import { ChartZoomableComponent } from './chart-zoomable.component';
 
 describe('ChartCurrencyConverterComponent', () => {
-  let component: ChartCurrencyConverterComponent;
-  let fixture: ComponentFixture<ChartCurrencyConverterComponent>;
+  let component: ChartZoomableComponent;
+  let fixture: ComponentFixture<ChartZoomableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartCurrencyConverterComponent ],
+      declarations: [ ChartZoomableComponent ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChartCurrencyConverterComponent);
+    fixture = TestBed.createComponent(ChartZoomableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

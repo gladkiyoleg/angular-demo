@@ -23,7 +23,6 @@ export class ChartSelectDateComponent implements OnChanges {
 
   @Output() onSelectData = new EventEmitter();
 
-  private area: any;
   private width: number;
   private height: number;
   private x: any;
@@ -56,7 +55,7 @@ export class ChartSelectDateComponent implements OnChanges {
       .range([0, this.height])
       .domain(d3.extent(this.data, (d) => d.value.close));
 
-    this.area = (x, y) => d3.area()
+    const area: any = (x, y) => d3.area()
       .x((d: any) => x(new Date(d.date)))
       .y0(y(0))
       .y1((d: any) => y(d.value.close));
@@ -97,7 +96,7 @@ export class ChartSelectDateComponent implements OnChanges {
     svg.append('path')
       .datum(this.data)
       .attr('class', 'path')
-      .attr('d', this.area(this.x, this.y.copy().range([this.height - this.margin.bottom, 4])));
+      .attr('d', area(this.x, this.y.copy().range([this.height - this.margin.bottom, 4])));
 
     const gb = svg.append('g')
       .call(brush)

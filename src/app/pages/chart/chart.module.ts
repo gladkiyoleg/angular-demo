@@ -7,7 +7,7 @@ import { ChartOneComponent } from './components/chart-one/chart-one.component';
 import { ChartSelectDateComponent } from './components/chart-select-date/chart-select-date.component';
 import { ChartListPageComponent } from './pages/chart-list-page/chart-list-page.component';
 import { ChartCurrencyPageComponent } from './pages/chart-currency-page/chart-currency-page.component';
-import { ChartCurrencyConverterComponent } from './components/chart-currency-converter/chart-currency-converter.component';
+import { ChartZoomableComponent } from './components/chart-zoomable/chart-zoomable.component';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { ChartCurrencyConverterComponent } from './components/chart-currency-con
     ChartSelectDateComponent,
     ChartListPageComponent,
     ChartCurrencyPageComponent,
-    ChartCurrencyConverterComponent,
+    ChartZoomableComponent,
   ],
   imports: [
     CommonModule,
