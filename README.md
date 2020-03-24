@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Rename [environment.sample.ts](https://github.com/gladkiyoleg/angular-demo/blob/master/src/environments/environment.sample.ts) to environment.ts and set api keys.
+ 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
