@@ -23,16 +23,17 @@ export class ChartSelectDateComponent implements OnChanges {
 
   @Output() onSelectData = new EventEmitter();
 
-  private width: number;
-  private height: number;
+  private width: number = 600;
+  private height: number = 100;
   private x: any;
   private y: any;
   private margin: Margin = {
-    top: 20,
+    top: 10,
     bottom: 20,
-    right: 0,
+    right: 40,
     left: 0,
   };
+  private brushMinWidth = 30;
 
   constructor() {
   }
@@ -44,9 +45,6 @@ export class ChartSelectDateComponent implements OnChanges {
   }
 
   private initSvg() {
-    this.width = 600;
-    this.height = 100;
-
     this.x = d3.scaleTime()
       .range([this.margin.left, this.width])
       .domain(d3.extent(this.data, (d) => new Date(d.date)));
@@ -61,10 +59,8 @@ export class ChartSelectDateComponent implements OnChanges {
       .y1((d: any) => y(d.value.close));
 
     const brushHandler = () => {
-      if (d3.event.selection) {
-        svg.property('value', d3.event.selection.map(this.x.invert, this.x).map(d3.utcDay.round));
-        svg.dispatch('input');
-        this.onSelectData.emit(d3.event.selection.map(this.x.invert, this.x).map(d3.utcDay.round));
+      if (d3.event.selection && Math.floor(d3.event.selection[1] - d3.event.selection[0]) >= this.brushMinWidth) {
+        this.onSelectData.emit(d3.event.selection.map(this.x.invert, this.x));
       }
     };
 
@@ -75,28 +71,32 @@ export class ChartSelectDateComponent implements OnChanges {
     };
 
     const svg = d3.select('#chartSelectDate')
-      .attr('viewBox', `0, 0, ${this.width}, ${this.height}`);
+      .append('svg')
+      .attr('viewBox', `0, 0, ${this.width}, ${this.height + this.margin.top + this.margin.bottom}`);
 
-    const xAxis = (g, x, height) => g
-      .attr('transform', `translate(0,${height - this.margin.bottom})`)
+    const wrapper = svg.append('g')
+      .attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);
+
+    const xAxis = (g) => g
+      .attr('transform', `translate(0,${this.height})`)
       .call(d3.axisBottom(this.x)
         .ticks(this.data.length / 30)
         .tickFormat(d3.timeFormat('%B')));
 
     const brush = d3.brushX()
-      .extent([[this.margin.left, 0.5], [this.width, this.height - this.margin.bottom + 0.5]])
+      .extent([[this.margin.left, 0.5], [this.width, this.height + this.margin.top + 0.5]])
       .on('brush', brushHandler)
       .on('end', brushEndHandler);
 
     const defaultSelection = [this.x(d3.utcMonth.offset(this.x.domain()[1], -1)), this.x.range()[1]];
 
-    svg.append('g')
-      .call(xAxis, this.x, this.height);
+    wrapper.append('g')
+      .call(xAxis);
 
-    svg.append('path')
+    wrapper.append('path')
       .datum(this.data)
       .attr('class', 'path')
-      .attr('d', area(this.x, this.y.copy().range([this.height - this.margin.bottom, 4])));
+      .attr('d', area(this.x, this.y.copy().range([this.height, 4])));
 
     const gb = svg.append('g')
       .call(brush)

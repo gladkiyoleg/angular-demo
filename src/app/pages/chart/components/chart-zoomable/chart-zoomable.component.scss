@@ -1,12 +1,22 @@
 :host(app-chart-zoomable) {
   display: block;
+  margin-bottom: 1px;
+  border: 1px solid #000;
 }
 
-#chartZoomable {
-  border: 1px solid #333
-}
 ::ng-deep svg {
+
   .path {
     fill: rgba(0, 0, 0, .2);
+  }
+
+  .area {
+    fill: rgba(70, 130, 180, .5);
+  }
+
+  .line {
+    &--x {
+      stroke: rgba(0, 0, 0, .2);
+    }
   }
 }

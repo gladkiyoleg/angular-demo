@@ -40,6 +40,10 @@ export class ChartCurrencyPageComponent implements OnInit {
     return this.selectedDataRange ? Math.max.apply(Math, this.selectedDataRange.map((el) => el.value[type])) : 0;
   }
 
+  minValue(type: string): number {
+    return this.selectedDataRange ? Math.min.apply(Math, this.selectedDataRange.map((el) => el.value[type])) : 0;
+  }
+
   private getDataList() {
     const params: CurrencyRequest = {
       from_symbol: this.currencyCodeFrom,
